@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>Output</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic|PT+Mono&amp;subset=latin,cyrillic"><link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/wtf-forms.css'>
+    
+        <style>
+            #left-div {
+                width: 500px;
+                float: left;
+                display:block;
+                height: 400px;
+                background-color: aliceblue;
+                        
+            }
+            #right-div {
+                width: 500px;
+                display: block;
+                float: right;
+                height: 400px;
+                background-color:aliceblue;
+            }
+            #container {
+                width: 1000px;
+                background-color: #ffcc33;
+                margin: auto;
+            }
+
+
+            .button {
+                display: inline-block;
+                padding: 10px 15px;
+                font-size: 15px;
+                
+                cursor: pointer;
+                text-align: center;
+                text-decoration: none;
+                outline: none;
+                color: #fff;
+                box-shadow: 0 5px #666;
+                background-color: #4CAF50;
+                border: none;
+                border-radius: 15px;
+                padding-top: 10px;
+                }
+
+            .button:hover {background-color: #3e8e41
+            
+            }
+
+            .button:active {
+                background-color: #3e8e41;
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+                }
+
+
+            *,
+            *:before,
+            *:after {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            #file {
+                margin: 0;
+                padding: 5rem 2.5rem;
+                font: 2rem/2.5 "PT Sans", Arial, sans-serif;
+                color: #5a5a5a;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+    <center>
+        <h1>Traffic sign Detector</h1>
+        <br><br>
+        <form action = "http://localhost:81/uploader" method = "POST" enctype = "multipart/form-data">
+            <label class="file">
+                    <input type="file" id="file" name="file">
+                    <span class="file-custom"></span>
+            </label>
+            <br><br>
+            
+            <input type="submit" class="button" onclick="submit">
+            
+      </form>
+        <br><br>
+        <div id="container">
+
+            <div id="left-div" padding="100px" margin="25px">
+                <h1>Testing Image</h1>
+                <hr><br><br>
+                <img src="../static/uploads/00000.png" width="200px" height="200px"/>  
+            </div>
+
+
+            <div id="right-div" padding="100px" margin="25px"> 
+                <h1>Predicted Image</h1>
+                <hr><br><br>
+                <img src="../static/16.png" widht="200px" height="200px"/>
+            </div>
+
+        </div>
+    </center>
+    </body>
+</html>

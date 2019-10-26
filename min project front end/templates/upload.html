@@ -1,0 +1,105 @@
+<html>
+   <head>
+   
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic|PT+Mono&amp;subset=latin,cyrillic"><link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/wtf-forms.css'>
+
+      
+      <style>
+
+            .button {
+                display: inline-block;
+                padding: 10px 15px;
+                font-size: 20px;
+                
+                cursor: pointer;
+                text-align: center;
+                text-decoration: none;
+                outline: none;
+                color: #fff;
+                box-shadow: 0 5px #666;
+                background-color: #4CAF50;
+                border: none;
+                padding-left:50px;
+                padding-right:50px;
+                border-radius: 15px;
+                padding-top: 10px;
+                }
+
+            .button:hover {background-color: #3e8e41
+            
+            }
+
+            .button:active {
+                background-color: #3e8e41;
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+                }
+
+
+
+         *,
+            *:before,
+            *:after {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            #file {
+                margin: 0;
+                
+                font: 2rem/2.5 "PT Sans", Arial, sans-serif;
+                color: #5a5a5a;
+            } 
+            
+            input:focus + label {
+               outline: 4px solid;
+            }
+
+            #file-upload-filename {
+               margin-top: 10px;
+               font-size: 20px;
+            }
+      </style>
+   </head>
+   <body>
+   <center>
+         <h1>Traffic sign Detector</h1>
+         <br><br>
+         <form action = "http://localhost:3333/uploader" method = "POST" enctype = "multipart/form-data">
+            <label class="file">
+                    <input type="file" id="file" name="file">
+                    <span class="file-custom"></span>
+                    
+                    <div id="file-upload-filename" ></div>
+            </label>
+            
+           <br><br><br><br><br>
+            
+            <input type="submit" class="button" onclick="submit">
+            
+      </form>
+   </center>
+   </body>
+
+   <script>
+         var input = document.getElementById( 'file' );
+         var infoArea = document.getElementById( 'file-upload-filename' );
+
+         input.addEventListener( 'change', showFileName );
+
+         function showFileName( event ) {
+         
+         // the change event gives us the input it occurred in 
+         var input = event.srcElement;
+         
+         // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+         var fileName = input.files[0].name;
+         
+         // use fileName however fits your app best, i.e. add it into a div
+         infoArea.textContent = 'File name: ' + fileName;
+         }
+      </script>
+
+
+</html>
